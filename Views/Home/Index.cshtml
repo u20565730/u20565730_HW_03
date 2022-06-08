@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@model u20565730_HMWK03.Models.FileModel
+<div class="row" id="heading">
+     <h2>myMedia</h2>
+    <h4>File uploading/downloading</h4>
+</div>
+
+<div class="row">
+
+    <div class="col-md-4" id="body1">
+        <h2>Description</h2>
+        <p>
+            This page allows you to upload/download documents,images and videos. You will be able to download and delete these files. Each page allows
+            you to view these files according to their respective folders...
+        </p>
+
+    </div>
+
+    <div class="col-md-4">
+        <h2>Option Select</h2>
+
+
+
+        @using (Html.BeginForm("Upload", "Home", FormMethod.Post,
+             new {  enctype = "multipart/form-data"}  ))
+        {
+
+             <div>
+
+                 Document @Html.RadioButton("FileType", "Document")<br />
+                 Image @Html.RadioButton("FileType", "Images")<br />
+                 Video @Html.RadioButton("FileType", "Videos")<br />
+
+              </div>
+              @Html.TextBox("uploadedFile", "", new { type = "file" });
+              <br />
+
+              <input type="submit" class="btn" name="submit" />
+               
+        }
+
+
+
+
+
+
+
+    </div>
+</div>
+
+    
+
